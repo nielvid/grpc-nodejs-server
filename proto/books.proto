@@ -1,0 +1,25 @@
+syntax = 'proto3'
+
+
+message BookItem {
+ int32 id = 1
+ string title = 2
+ string author = 3
+}
+
+message BookId{
+ int32 id  = 1
+}
+
+message Books{
+repeated BookItem books = 1
+}
+
+message Empty{}
+
+service Book{
+ rpc createBook(BookItem)return(BookItem){};
+ rpc findABook(BookId)return (BookItem){};
+ rpc fetchAllBooks(Empty)return(Books){};
+
+}
